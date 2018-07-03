@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "github download btn",
+  "description": "a button for specific git file download",
+  "version": "1.0",
+  "permissions": [
+    "tabs", "https://github.com/*", "http://git.yypm.com/*", "downloads"
+  ],
+  "background": {
+    "scripts": ["load.js"],
+    "persistent": false
+  },
+  "content_scripts": [{
+    "matches": ["https://github.com/*", "http://git.yypm.com/*", "https://gitlab.com/*"],
+    "js": ["addBtn.js"]
+  }]
+}
