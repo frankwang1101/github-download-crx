@@ -6,7 +6,7 @@ function render() {
     const query = !isGithub ? '.table-holder .tree-item .tree-item-file-name a' : '.file-wrap tbody .js-navigation-item .content a'
 
     let fileWrap = document.querySelectorAll(query)
-    fileWrap = [].filter.call(fileWrap, el => ~el.href.indexOf('/blob/'))
+    fileWrap = [].filter.call(fileWrap, el => ~el.href.indexOf('/blob/')) // 过滤目录地址
     fileWrap.forEach((el) => {
       let link = el.href
       let p = el.parentElement
@@ -30,6 +30,7 @@ function render() {
     const a = document.createElement(type)
     a.className = 'btn'
     a.onclick = function (e) {
+      // 阻止默认事件
       e.preventDefault()
       e.stopPropagation()
       const a = document.createElement('a')
