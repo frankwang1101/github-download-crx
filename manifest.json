@@ -5,7 +5,7 @@
   "description": "a button for specific git file download",
   "version": "1.0",
   "permissions": [
-    "tabs", "https://github.com/*", "http://git.yypm.com/*", "downloads"
+    "tabs", "https://github.com/*", "http://git.yypm.com/*", "downloads", "activeTab"
   ],
   "background": {
     "scripts": ["load.js"],
@@ -14,5 +14,9 @@
   "content_scripts": [{
     "matches": ["https://github.com/*", "http://git.yypm.com/*", "https://gitlab.com/*"],
     "js": ["addBtn.js"]
-  }]
+  }],
+  "browser_action": {
+    "default_title": "Screenshot"
+  },
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
 }
